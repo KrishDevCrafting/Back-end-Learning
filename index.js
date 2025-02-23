@@ -1,14 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config(); // Import dotenv and load .env variables
-
+const cors = require("cors");
 const app = express();
-const port = process.env.PORT || 5000;
+
 
 // console.log(process.env.PORT, "check!");
 // console.log(process.env.MONGODB_URL)
 //
-//
+app.use(express.json()); 
 //
 //
 //
@@ -21,29 +21,31 @@ const port = process.env.PORT || 5000;
 //
 //
 // ;
-
+app.use(cors()); // Enable CORS for all routes
 const authRoutes = require("./routes/userRouter");
-app.use("/", authRoutes);
+app.use("/user", authRoutes);
 
-const connectDB = async () => {
-  try {
-    const conn = await mongoose.connect(process.env.MONGODB_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
+// MongoDB Connection
+mongoose
+  .connect(process.env.MONGODB_URL, {})
+  .then(() => {
+    console.log("Connected to MongoDB");
+
+    // Start the server
+    const port = process.env.PORT || 7001;
+    app.listen(port, () => {
+      console.log(`Server is running on port ${port}`);
     });
-    console.log(`MongoDB Connected: ${conn.connection.host}`);
-  } catch (error) {
-    console.error(`Error: ${error.message}`);
-    process.exit(1); // Exit process if connection fails
-  }
-};
+  })
+  .catch((error) => {
+    console.error("Error connecting to MongoDB:", error.message);
+  });
 
-connectDB(); // Now calling it after defining
 
-app.use(express.json());
+
+
 
 app.get("/", (req, res) => {
   res.send("Kerosence!");
 });
 
-app.listen(port, () => console.log(`Server running on port ${port}`));
