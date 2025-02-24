@@ -4,11 +4,10 @@ require("dotenv").config(); // Import dotenv and load .env variables
 const cors = require("cors");
 const app = express();
 
-
 // console.log(process.env.PORT, "check!");
 // console.log(process.env.MONGODB_URL)
 //
-app.use(express.json()); 
+app.use(express.json());
 //
 //
 //
@@ -41,11 +40,6 @@ mongoose
     console.error("Error connecting to MongoDB:", error.message);
   });
 
-
-
-
-
 app.get("/", (req, res) => {
   res.send("Kerosence!");
 });
-
