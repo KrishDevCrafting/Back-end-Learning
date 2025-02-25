@@ -8,18 +8,7 @@ const app = express();
 // console.log(process.env.MONGODB_URL)
 //
 app.use(express.json());
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-// ;
+
 app.use(cors()); // Enable CORS for all routes
 const authRoutes = require("./routes/userRouter");
 app.use("/user", authRoutes);
