@@ -4,9 +4,7 @@ require("dotenv").config(); // Import dotenv and load .env variables
 const cors = require("cors");
 const app = express();
 
-// console.log(process.env.PORT, "check!");
-// console.log(process.env.MONGODB_URL)
-//
+// Middleware to parse JSON bodies
 app.use(express.json());
 
 app.use(cors()); // Enable CORS for all routes
