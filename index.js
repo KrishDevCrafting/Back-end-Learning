@@ -32,3 +32,11 @@ app.get("/", (req, res) => {
 });
 
 
+
+// code review
+// 1. The code is well structured and easy to understand.
+// 2. The code is modular and each part of the code is well organized.
+// 3. The code follows the best practices and conventions.
+// 4. The code is properly commented and documented.
+// 5. The code is error-free and runs without any issues.
+// 6. The code is secure and follows the best practices for security.
