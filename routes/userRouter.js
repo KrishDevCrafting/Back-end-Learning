@@ -10,7 +10,7 @@ const {
 
 router.post("/register", createUser);
 router.get("/getusers", getusers);
-router.delete("/deleteuser/:id", deleteUser);
+router.delete("/deleteuser/:name", deleteUser);
 // router.post("/login", loginUser);
 // router.post("/logout", logoutUser);
 
