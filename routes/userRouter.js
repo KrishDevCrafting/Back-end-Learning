@@ -16,4 +16,3 @@ router.delete("/deleteuser/:name", deleteUser);
 
 module.exports = router;
 
-// fuck-off
