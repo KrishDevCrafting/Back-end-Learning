@@ -24,7 +24,7 @@
                 <p class="page-link">
                     <span class="page-link-label">Forgot Password?</span>
                 </p>
-                <button class="form-btn">Log in</button>
+                <button class="form-btn" type="submit">Log in</button>
             </form>
             <p class="sign-up-label">
                 Don't have an account?<span class="sign-up-link">Sign up</span>
@@ -66,5 +66,32 @@
 
 </body>
 <script src="./index.js"></script>
+
+
+
+
+
+
+
+
+<script>
+    fetch("http://localhost:7001/user/register", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            email: "test@example.com",
+            password: "123456"
+        })
+    })
+        .then(res => res.json())
+        .then(data => console.log("Response:", data))
+        .catch(err => console.error("Error:", err));
+</script>
+
+
+
+
 
 </html>
