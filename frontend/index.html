@@ -7,6 +7,7 @@
     <title>Basic-LoginForm</title>
     <!-- <link href="./index.css"> -->
     <link rel="stylesheet" href="./index.css">
+    <script src="./index.js"></script>
 </head>
 
 <body>
@@ -19,9 +20,9 @@
         <div class="form-container">
             <p class="title">New-Users</p>
             <form class="form">
-                <input type="email" class="input" placeholder="Email">
-                <input type="password" class="input" placeholder="Password">
-                <p class="page-link">
+                <input type="email" class="input" placeholder="Email" id="email">
+                <input type="password" class="input" placeholder="Password" id="password">
+                <p class=" page-link">
                     <span class="page-link-label">Forgot Password?</span>
                 </p>
                 <button class="form-btn" type="submit">Log in</button>
@@ -65,7 +66,6 @@
 
 
 </body>
-<script src="./index.js"></script>
 
 
 
@@ -74,6 +74,7 @@
 
 
 
+<!-- 
 <script>
     fetch("http://localhost:7001/user/register", {
         method: "POST",
@@ -81,14 +82,14 @@
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            email: "test@example.com",
-            password: "123456"
+            email: "test@racing.com",
+            password: "1234569878"
         })
     })
         .then(res => res.json())
         .then(data => console.log("Response:", data))
         .catch(err => console.error("Error:", err));
-</script>
+</script> -->
 
 
 
