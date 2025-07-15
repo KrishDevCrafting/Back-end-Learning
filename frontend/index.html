@@ -19,7 +19,7 @@
         <!-- From Uiverse.io by akshat-patel28 -->
         <div class="form-container">
             <p class="title">New-Users</p>
-            <form class="form">
+            <form class="form" id="loginForm">
                 <input type="email" class="input" placeholder="Email" id="email">
                 <input type="password" class="input" placeholder="Password" id="password">
                 <p class=" page-link">
@@ -92,7 +92,33 @@
 </script> -->
 
 
+<script>
+    document.getElementById("loginForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
 
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        const response = await fetch("http://localhost:7001/user/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ email, password })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            alert("Login successful!");
+            console.log(data);
+            // You can redirect or store token if needed
+        } else {
+            alert("Login failed: " + data.message);
+        }
+    });
+
+</script>
 
 
 </html>
